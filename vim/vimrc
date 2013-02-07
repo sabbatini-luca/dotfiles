@@ -1,0 +1,250 @@
+set nocompatible
+let $MYDIR=$HOME . "/Dropbox/src/dotfiles/vim"
+
+"neobundle {{{
+filetype off
+if has('vim_starting')
+  set runtimepath+=$MYDIR/bundle/neobundle.vim
+endif
+call neobundle#rc(expand($MYDIR . "/bundle"))
+
+" github
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'ciaranm/inkpot'
+NeoBundle 'othree/eregex.vim'
+NeoBundle 'superbrothers/vim-vimperator'
+NeoBundle 'vim-jp/vimdoc-ja'
+" vim-scripts
+NeoBundle 'sudo.vim'
+" }}}
+
+set runtimepath^=$MYDIR/runtime
+set runtimepath+=$MYDIR/runtime/after
+
+set autoindent
+set expandtab
+"set tabstop=8
+set softtabstop=2
+set shiftwidth=2
+set formatoptions-=t
+set formatoptions+=mB
+set laststatus=2
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set showcmd
+"set showmatch
+"set scrolloff=2
+set scrolloff=999
+set history=100
+set fileformats=unix,dos,mac
+set directory-=.
+set directory-=~/tmp
+set backupdir-=.
+set clipboard=unnamed,autoselect
+set list
+"set listchars=eol:<,tab:>+,trail:-,extends:>
+set listchars=trail:∎
+set listchars+=tab:»-
+set listchars+=extends:»
+set listchars+=precedes:«
+"set textwidth=0
+"set linebreak
+set showbreak=↳
+set mouse=r
+"set title
+"set titlestring=Vimだよ〜ん
+set confirm
+set display=lastline
+set wildmode=longest,list,full
+set virtualedit+=block
+" PHPで文字列中のHTMLをハイライト
+let php_htmlInStrings=1
+
+"iconv {{{1
+if has("iconv")
+  "set encoding=utf-8
+  set fileencodings=ucs-bom
+  "set fileencodings=ucs-bom,ucs-2le,ucs-2
+  let s:enc_euc = 'euc-jp'
+  let s:enc_jis = 'iso-2022-jp'
+  if iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
+    let s:enc_euc = 'euc-jisx0213'
+    let s:enc_jis = 'iso-2022-jp-3'
+  endif
+  let &fileencodings = &fileencodings . ',' . s:enc_jis
+  "set fileencodings+=utf-8
+  set fileencodings+=cp932
+  let &fileencodings = &fileencodings . ',' . s:enc_euc
+  unlet s:enc_euc
+  unlet s:enc_jis
+  set ambiwidth=double
+
+  if has("autocmd")
+    function! AU_ReCheck_FENC()
+      if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+        let &fileencoding=&encoding
+      endif
+    endfunction
+    autocmd BufReadPost * call AU_ReCheck_FENC()
+  endif
+endif
+" }}}
+"Statusline {{{1
+if has("statusline")
+  function! GetEFstatus()
+    let str = ''
+    let fenc = ''
+    if &fileformat == 'unix'
+      let str = '[UNI]'
+    else
+      let str = '[' . &fileformat . ']'
+    endif
+    if &fileencoding != ''
+      if &fileencoding =~# 'iso-2022-jp'
+        let fenc = 'J'
+      elseif &fileencoding == 'utf-8'
+        let fenc = 'U'
+      elseif &fileencoding == 'cp932'
+        let fenc = 'S'
+      elseif &fileencoding =~# 'euc-j'
+        let fenc = 'E'
+      else
+        let fenc = &fileencoding
+      endif
+      let str = str . '[' . fenc . ']'
+    else
+      let str = str . '[-]'
+    endif
+    unlet fenc
+    return str
+  endfunction
+
+  set statusline=
+  set statusline+=[%{strlen(&ft)?&ft:'notype'}] "ファイルタイプ
+  set statusline+=%-40.40f                    "左寄せ、最大最小50文字
+                                              "相対パスでファイル名
+  set statusline+=%16(%#todo#%m%r%*%{GetEFstatus()}%)
+                                              "16文字分のスペースで修正フラグ
+                                              "読み込み専用フラグ、GetEFstatus
+  set statusline+=%=                          "左寄せの区切り
+  set statusline+=%l\                         "カレント行数
+  set statusline+=/
+  set statusline+=%5P                         "カレント行の割合を5文字幅で
+endif
+" }}}
+"Keymap {{{1
+if has("keymap")
+  nnoremap j gj
+  nnoremap gj j
+  nnoremap k gk
+  nnoremap gk k
+  vnoremap j gj
+  vnoremap gj j
+  vnoremap k gk
+  vnoremap gk k
+  nmap <Space> <PageDown>
+
+  "word単位で後方移動
+  nnoremap <C-B> b
+  nnoremap b <PageUp>
+
+  "検索ハイライトを消す
+  noremap <silent><Leader>/ :nohlsearch<CR>
+
+  "インデント操作後、同範囲を再び選択
+  vnoremap < <gv
+  vnoremap > >gv
+
+  " * で選択範囲を検索
+  " http://vimwiki.net/?vimrc%2F1
+  vnoremap * "zy:let @/ = @z<CR>n
+
+  " コマンドライン
+  cnoremap <C-A> <Home>
+  cnoremap <C-E> <End>
+  cnoremap <C-B> <Left>
+  cnoremap <C-F> <Right>
+  cnoremap <C-N> <Down>
+  cnoremap <C-P> <Up>
+
+  " mapleaderを変更 デフォルトはバックスラッシュ
+  let mapleader = ","
+
+  " CUIでのStatuslineの色変更遅延対策
+  if has('unix') && !has('gui_running')
+    inoremap <silent> <Esc> <Esc>
+    inoremap <silent> <C-[> <Esc>
+  endif
+
+  " for eregex.vim
+  "nnoremap / :M/
+  "nnoremap ? :M?
+  "nnoremap ,/ /
+  "nnoremap ,? ?
+
+endif
+" }}}
+"Syntax {{{1
+if (&t_Co >2 && has("syntax")) || has("gui_running")
+  syntax on
+  set background=dark
+
+  "if &term == 'mlterm'
+    ""set term=xterm-256color
+    "set t_Co=256
+  "end
+
+  " Solarized Option
+  let g:solarized_termcolors=256
+  let g:solarized_termtrans=1
+  "let g:solarized_contrast='high'
+  let g:solarized_visibility='normal'
+  let $TERM_PROGRAM='rxvt'          "for italic font
+
+  if has("gui_running")
+    "set background=light
+    colorscheme solarized
+  elseif &t_Co >250
+    "colorscheme 256inkpot
+    colorscheme solarized
+  "elseif &t_Co >80
+    "colorscheme inkpot
+  else
+    colorscheme inkpot16
+  endif
+endif
+" }}}
+"AutoCommand {{{1
+if has("autocmd")
+  filetype plugin indent on
+  autocmd VimEnter,BufNewFile,BufReadPost * runtime zenkakuspace.vim
+  "autocmd BufNewFile *.html         0r $MYDIR/runtime/skeleton.html
+  autocmd BufNewFile *.rb           0r $MYDIR/runtime/skeleton.rb
+  autocmd BufNewFile *.sh           0r $MYDIR/runtime/skeleton.sh
+
+  "コメント行から改行などしたときに自動でコメント文字を挿入しないようにする
+  "set formatoptions-=roでは駄目だった
+  autocmd FileType * setlocal formatoptions-=ro
+
+  autocmd BufReadPost *
+        \ if ! exists("g:leave_my_cursor_position_alone") |
+        \   if line ("'\"") > 0 && line("'\"") <= line("$") |
+        \       exe "normal g'\"" |
+        \   endif |
+        \ endif
+
+  " change status line based on mode
+  " for Solarized colorscheme
+  autocmd InsertEnter * hi StatusLine term=reverse cterm=reverse ctermfg=169 ctermbg=235 gui=bold,reverse guifg=#D33682 guibg=#073642
+  autocmd InsertLeave * hi StatusLine term=reverse cterm=reverse ctermfg=245 ctermbg=235 gui=bold,reverse guifg=#93A1A1 guibg=#073642
+endif
+" }}}
+
+NeoBundleCheck
+
+" vim: set sw=2 foldmethod=marker:

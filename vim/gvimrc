@@ -1,0 +1,37 @@
+if $DISTRO == "Arch"
+  set lines=24
+  set linespace=5
+  set guifont=Monaco\ 13
+  set guifontwide=Migu\ 1M\ 13
+elseif $DISTRO == "Ubuntu"
+  set lines=28
+  set linespace=6
+  set guifont=Monaco\ 14
+  set guifontwide=Migu\ 1M\ 14
+endif
+
+set guioptions-=T
+set mousehide
+set mouse=nvc
+set guicursor=a:blinkon0
+set showtabline=2
+
+if $GTK_IM_MODULE == "iiim"
+  let $GTK_IM_MODULE='xim'
+  set imactivatekey=C-space
+endif
+set iminsert=0
+set imsearch=0
+"ATOKXで使うときは、GTK_IM_MODULE=ximでgvimを起動すれば以下の設定はいらない
+"inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+"cnoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+"cnoremap <silent> <CR> <CR>:set iminsert=0<CR>
+"nnoremap <silent> i :set iminsert=0<CR>i
+"nnoremap <silent> I :set iminsert=0<CR>I
+"nnoremap <silent> o :set iminsert=0<CR>o
+"nnoremap <silent> O :set iminsert=0<CR>O
+"nnoremap <silent> a :set iminsert=0<CR>a
+"nnoremap <silent> A :set iminsert=0<CR>A
+"nnoremap <silent> / :set imsearch=0<CR>/
+"nnoremap <silent> ? :set imsearch=0<CR>?
+
