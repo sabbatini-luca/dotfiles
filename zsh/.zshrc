@@ -1,5 +1,5 @@
 # LS_COLOR
-dir_colors=$HOME/Dropbox/src/dot/dircolors.256dark
+dir_colors=$HOME/Dropbox/src/dotfiles/external/dircolors-solarized/dircolors.256dark
 if [ -f $dir_colors ]; then
   eval `TERM=xterm-256color dircolors -b $dir_colors`
 fi
