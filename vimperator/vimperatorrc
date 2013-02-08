@@ -1,0 +1,109 @@
+set runtimepath=~/.vimperator,~/Dropbox/src/dotfiles/vimperator
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Options
+set gui=noaddons,nobookmarks,menu,nonavigation,tabs
+set noscrollbars
+set complete=tl
+set focuscontent
+"set hlsearch
+set editor=~/bin/editor.sh
+set nextpattern=^次(へ|の|ペ),^続き,\bnext\b,^>$,^(>>|&#187;)$,^(>|&#187;),(>|&#187;)$,\bmore\b
+set previouspattern=^前(へ|の|ペ),^戻る,\bprev|previous\b,^<$,^(<<|&#171;)$,^(<|&#171;),(<|&#171;)$
+set hintchars="jfhgurkdie"
+set status=input,location,bookmark,history,position
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight
+hi Hint font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; line-height: 1; color: black; background-color: #5FF; border-color: ButtonShadow; border-width: 1px; border-style: solid; padding: 1px; z-index: 99999;
+hi -append CompDesc color: #272;
+hi -append StatusLine color: #44A;
+
+style chrome://* #statusbar-display[type="overLink"] {display: none !important;}
+" ブックマークの「タブですべて開く」を非表示に
+style chrome://* menuseparator.bookmarks-actions-menuseparator, menuitem.openintabs-menuitem {display: none !important;}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings
+map <C-h> <Nop>
+nmap b <PageUp>
+nnoremap j 3j
+nnoremap k 3k
+"noremap > l
+"noremap < h
+nmap s gt
+nmap a gT
+nmap Q ZQ
+nmap ^ gu
+"imap <C-f> <Right>
+"cmap <C-f> <Right>
+"imap <C-n> <Down>
+inoremap <C-n> <Down>
+cnoremap <C-n> <Down>
+inoremap <C-p> <Up>
+cnoremap <C-p> <Up>
+
+nmap <silent> ! :set invusermode<CR>
+
+"VISUAL MODE で選択文字列をグーグル検索
+vmap <silent> <C-g> y<Esc><Esc>P
+"VISUAL MODE で選択文章をグーグル翻訳
+"vmap <silent> <C-t> y<Esc><Esc>:mr googletrans-ja <C-v><CR>
+" 単語は alc の方がいいかも
+"vmap <silent> <C-w> y<Esc><Esc>:mr alc <C-v><CR>
+
+"nmap ,d :mr googletrans-ja 
+nmap ,d :mr alc 
+
+" Command
+com! -complete=search -nargs=+ os :t <args>
+com! -complete=file -nargs=+ of :o <args>
+com! -complete=history -nargs=+ oh :o <args>
+nmap ,s :os 
+nmap ,f :of 
+nmap ,b :open * 
+"nmap ,h :open ^ 
+nmap ,h :oh 
+
+"#付きURLの再読み込み時に#以降を無視する
+"http://d.hatena.ne.jp/tekiomo/20110117/1295264437
+"noremap <silent> r :open javascript:(function(l){location.href=/#!/.test(l)?l:(l.match(/^([^#]+)/)||[])[1]})(location.href)<CR>
+
+"現在のページのInternet Archiveを見る
+"noremap <silent> ,4 :open javascript:(location.href='http://web.archive.org/web/*/'+location.href)<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" qmark
+delqmarks!
+
+qmark 2 http://www.2nn.jp/
+qmark 4 notfound
+qmark a https://www.adrive.com/login
+qmark b http://buzztter.com/ja
+qmark c http://semicicada.blog.fc2.com/
+qmark d https://www.dropbox.com/
+qmark e http://www.evernote.com/Home.action
+qmark f http://skb.2chfootball.net/
+qmark g http://www.google.co.jp/
+qmark l http://reader.livedoor.com/reader/
+qmark m https://mail.google.com/
+qmark n http://news.google.co.jp/nwshp?hl=ja&tab=wn
+qmark p http://picasaweb.google.com/
+qmark s http://sportsnavi.yahoo.co.jp/soccer/
+qmark t https://twitter.com/home
+qmark y http://www.youtube.com/videos?feature=mh
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" load plugin setting
+source ~/Dropbox/src/dotfiles/vimperator/vimppluginrc
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Firefox preference
+set! geo.enabled=false
+set! noscript.sync.enabled=true
+set! network.http.spdy.enabled=true
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Firefox 12 Bug?
+imap <C-h> <BS>
+cmap <C-h> <BS>
+
+" vim: set ft=vimperator:

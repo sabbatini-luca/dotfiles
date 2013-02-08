@@ -1,0 +1,70 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plugins
+
+" nextlink.js
+let g:nextlink_followlink = "true"
+let g:nextlink_nositeinfo_act = "f"
+
+" copy.js
+" http://d.hatena.ne.jp/sugilog/20110321/1300721545
+nmap ,ct :copy<Space>tDiary<CR>
+nmap ,cg :copy<Space>ggl<CR>
+
+js <<EOF
+liberator.globalVariables.copy_templates = [
+{ label: 'ggl', value: 'Copy title & goo.gl', custom: function() { return '「' +  buffer.title + '」 ' + getShortUrl();} }, 
+{ label: 'titleAndURL',    value: '"%TITLE%" %URL%' },
+{ label: 'title',          value: '%TITLE%' },
+{ label: 'tDiary',         value: '{{a \'%TITLE%|%URL%\'}}' }
+];
+
+var getShortUrl = function() {
+  var longUrl = content.document.location.href;
+
+  var googl = {
+    'url' : 'https://www.googleapis.com/urlshortener/v1/url',
+    'method' : 'POST',
+    'contentType' : 'application/json',
+    'longJson' : '{ "longUrl" : "' + longUrl + '" }'
+  };
+
+  var request = new XMLHttpRequest();
+  request.open(googl.method, googl.url, false);
+  request.setRequestHeader('Content-Type', googl.contentType);
+  request.send(googl.longJson);
+
+  return JSON.parse(request.responseText).id;
+};
+EOF
+
+" hints-ext.js
+let use_hintchars_ex=1
+let use_hints_ext_hinttags=1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+loadplugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" feedSomKeys_3
+command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+lazy fmaps -u='mail\.google\.com/mail' c / y j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+lazy fmaps -u='livedoor\.com/reader' j k s a r v g G z <Space> <S-Space> < >
+
+" noscript.js
+nmap <silent> en :noscript toggletemp<CR>
+nmap <silent> En :noscript toggleperm<CR>
+
+" appendAnchor.js
+nmap <silent> ,a :anc<CR>
+
+" statusline-toolbar.js
+set statuslinetoolbars=identity-box,feed-button
+style chrome://* -append #status-bar {color: #586E75 !important;background-color: #FDF6E3 !important;}
+
+" hints-ext.js
+hi HintExt font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; line-height: 1; color: black; background-color: #5FF; border-color: ButtonShadow; border-width: 1px; border-style: solid; padding: 1px; z-index: 99999;
+hi -append HintExtActive>span background-color: yellow;
+
+js hints.addSimpleMap("<C-l>", function () {this.relocation(); });
+
+" vim: set ft=vimperator:
