@@ -1,0 +1,29 @@
+#!/bin/sh
+
+for errfile in "$HOME/.xsession-errors"
+do
+  if ( cp /dev/null "$errfile" 2> /dev/null )
+  then
+    chmod 600 "$errfile"
+    exec > "$errfile" 2>&1
+    break
+  fi
+done
+
+export LANG=ja_JP.UTF-8
+#export GDK_USE_XFT=1
+##for OOo antialias
+#export SAL_EMBEDDED_BITMAP_PRIORITY=0
+##for Java
+#export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
+##for Xfce Terminal
+#export VTE_CJK_WIDTH=wide
+#export OOO_FORCE_DESKTOP=gnome
+export DE=xfce
+
+. $HOME/Dropbox/src/dotfiles/zsh/.zprofile
+
+# ATOK
+. /opt/atokx3/bin/atokx3start.sh
+/opt/atokx3/sample/iiimf_status_hide
+
