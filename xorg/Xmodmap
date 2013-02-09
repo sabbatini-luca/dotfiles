@@ -1,0 +1,25 @@
+clear shift
+!clear lock
+!clear mod2
+clear mod4
+!clear mod5
+
+!129(81) Henkan_Mode Mode_switch
+!keycode 129 = Shift_R
+!evdev driver
+keycode 100 = Shift_R
+
+!131(83) Muhenkan
+!keycode 131 = Shift_L
+!evdev driver
+keycode 102 = Shift_L
+
+!50 Shift_L
+keycode 50 = Super_L
+!62 Shift_R
+keycode 62 = Super_R
+
+add Shift = Shift_R Shift_L
+add mod4 = Super_L Super_R
+
+! vim: set ft=xmodmap:

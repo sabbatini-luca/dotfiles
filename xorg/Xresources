@@ -1,0 +1,145 @@
+!! Solarized color scheme {{{
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+*.background:            S_base03
+*.foreground:            S_base00
+*.fading:                40
+*.fadeColor:             S_base03
+*.cursorColor:           S_base1
+*.pointerColorBackground:S_base01
+*.pointerColorForeground:S_base1
+
+!! black dark/light
+*.color0:                S_base02
+*.color8:                S_base03
+
+!! red dark/light
+*.color1:                S_red
+*.color9:                S_orange
+
+!! green dark/light
+*.color2:                S_green
+*.color10:               S_base01
+
+!! yellow dark/light
+*.color3:                S_yellow
+*.color11:               S_base00
+
+!! blue dark/light
+*.color4:                S_blue
+*.color12:               S_base0
+
+!! magenta dark/light
+*.color5:                S_magenta
+*.color13:               S_violet
+
+!! cyan dark/light
+*.color6:                S_cyan
+*.color14:               S_base1
+
+!! white dark/light
+*.color7:                S_base2
+*.color15:               S_base3
+
+!! }}}
+
+!! for rxvt-unicode {{{
+!URxvt.preeditType: OverTheSpot
+URxvt.preeditType: OnTheSpot
+URxvt.perl-ext: xim-onthespot
+#ifdef IBUS
+URxvt.inputMethod: ibus
+#endif
+URxvt.scrollBar: false
+URxvt.pointerBlank: true
+URxvt.cutchars: "\"'"
+URxvt.saveLines: 1024
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.depth:                 32
+URxvt.background:            rgba:0000/2b00/3600/dddd
+URxvt.foreground:            S_base0
+URxvt.fading:                20
+
+#ifdef ARCH
+URxvt.geometry: 80x25
+URxvt.font:\
+    xft:Monaco:pixelsize=15:antialias=true,\
+    xft:Migu 1M:pixelsize=15:antialias=true,\
+    xft:Meiryo:pixelsize=15:antialias=true,\
+    xft:Gulim:pixelsize=15:antialias=true
+URxvt.boldFont:\
+    xft:Monaco:bold:pixelsize=15:antialias=true,\
+    xft:Migu 1M:bold:pixelsize=15:antialias=true,\
+    xft:Meiryo:bold:pixelsize=15:antialias=true,\
+    xft:Gulim:bold:pixelsize=15:antialias=true
+URxvt.italicFont:\
+    xft:Monaco:pixelsize=15:italic:antialias=true,\
+    xft:Migu 1M:italic:pixelsize=15:antialias=true,\
+    xft:Meiryo:italic:pixelsize=15:antialias=true,\
+    xft:Gulim:italic:pixelsize=15:antialias=true
+URxvt.boldItalicFont:\
+    xft:Monaco:pixelsize=15:bold:italic:antialias=true,\
+    xft:Migu 1M:bold:italic:pixelsize=15:antialias=true,\
+    xft:Meiryo:bold:italic:pixelsize=15:antialias=true,\
+    xft:Gulim:bold:italic:pixelsize=15:antialias=true
+!URxvt.imFont: -alias-fixed-medium-r-*-16-*
+URxvt.lineSpace: 3
+#endif
+#ifdef UBUNTU
+URxvt.geometry: 80x28
+URxvt.font:\
+    xft:Monaco:pixelsize=18:antialias=true,\
+    xft:Migu 1M:pixelsize=18:antialias=true,\
+    xft:Meiryo:pixelsize=18:antialias=true,\
+    xft:NanumGothic:pixelsize=18:antialias=true
+URxvt.boldFont:\
+    xft:Monaco:bold:pixelsize=18:antialias=true,\
+    xft:Migu 1M:bold:pixelsize=18:antialias=true,\
+    xft:Meiryo:bold:pixelsize=18:antialias=true,\
+    xft:NanumGothic:bold:pixelsize=18:antialias=true
+URxvt.italicFont:\
+    xft:Monaco:italic:pixelsize=18:antialias=true,\
+    xft:Migu 1M:italic:pixelsize=18:antialias=true,\
+    xft:Meiryo:italic:pixelsize=18:antialias=true,\
+    xft:NanumGothic:italic:pixelsize=18:antialias=true
+URxvt.boldItalicFont:\
+    xft:Monaco:bold:italic:pixelsize=18:antialias=true,\
+    xft:Migu 1M:bold:italic:pixelsize=18:antialias=true,\
+    xft:Meiryo:bold:italic:pixelsize=18:antialias=true,\
+    xft:NanumGothic:bold:italic:pixelsize=18:antialias=true
+!URxvt.imFont: -*-medium-r-*-20-*
+URxvt.lineSpace: 4
+#endif
+!! }}}
+
+!! fot xterm {{{
+!XTerm*faceName: Dejavu\ Sans\ Mono
+!XTerm*faceNameDoublesize: monospace
+!XTerm*faceSize: 12
+XTerm*font: -misc-fixed-medium-r-*-18-*-iso10646-*
+XTerm*fontDoublesize: -misc-fixed-medium-r-*-ja-18-*-iso10646-*
+XTerm*geometry: 80x25
+XTerm*cjkWidth: true
+XTerm*termName: xterm-256color
+XTerm*locale:                   true
+!XTerm*utf8:     2
+!! }}}
+
+! vim: set ft=xdefaults foldmethod=marker:
