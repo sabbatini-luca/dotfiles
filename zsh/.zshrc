@@ -220,27 +220,23 @@ unpack() {
     print -P "       Extract the file specified based on the extension"
   elif [[ -f $1 ]] ; then
     case ${(L)1} in
-      *.tar)      tar xvf $1      ;;
-      *.tbz2)     tar xvf $1      ;;
-      *.tgz)      tar xvf $1      ;;
-      *.tar.bz2)  tar xvf $1      ;;
-      *.tar.gz)   tar xvf $1      ;;
-      *.tar.xz)   tar Jxvf $1     ;;
-      *.bz2)      bunzip2 $1      ;;
-      *.gz)       gunzip $1       ;;
-      *.jar)      unzip $1        ;;
-      *.xpi)      unzip $1        ;;
-      *.rar)      unrar x $1      ;;
-      *.7z)       7z x $1         ;;
-      *.Z)        uncompress $1   ;;
-      *.lzh)      lha x $1        ;;
-      *.zip)
+      (*.tar|*.tbz2|*.tgz|*.tar.bz2|*.tar.gz) tar xvf $1 ;;
+      (*.tar.xz)  tar Jxvf $1 ;;
+      (*.bz2) bunzip2 $1 ;;
+      (*.gz)  gunzip $1 ;;
+      (*.jar) unzip $1 ;;
+      (*.xpi) unzip $1 ;;
+      (*.rar) unrar x $1 ;;
+      (*.7z)  7z x $1 ;;
+      (*.Z) uncompress $1 ;;
+      (*.lzh) lha x $1 ;;
+      (*.zip)
         case ${DISTRO} in
-          "Arch") unzip -O CP932 $1 ;;
-          *) unzip $1               ;;
+          ("Arch") unzip -O CP932 $1 ;;
+          (*) unzip $1               ;;
         esac
       ;;
-      *)
+      (*)
         echo "Unable to unpack '$1' :: Unknown extension"
         ;;
     esac
