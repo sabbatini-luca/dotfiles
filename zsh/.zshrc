@@ -7,25 +7,11 @@ fi
 # Jump {{{
 # autojump
 # https://github.com/joelthelion/autojump
-case ${DISTRO} in
-  "Ubuntu")
-    if [ -x /usr/bin/autojump ] ; then
-      source /usr/share/autojump/autojump.sh
-    fi
-    if [ -s $HOME/Dropbox/src/autojump/profile.d/autojump.zsh ] ; then
-      path=(${HOME}/Dropbox/src/autojump/bin ${path})
-      fpath=(${HOME}/Dropbox/src/autojump/functions ${fpath})
-      source $HOME/Dropbox/src/autojump/profile.d/autojump.zsh
-    fi
-    ;;
-  "Arch")
-    #if [ -x /usr/bin/autojump ] && [ ! -n "$AUTOJUMP_DATA_DIR" ] ; then
-    #if [ -x /usr/bin/autojump ] ; then
-    if [ -x /usr/bin/autojump ] && ! type j 1>/dev/null 2>/dev/null ; then
-      source /etc/profile.d/autojump.zsh
-    fi
-    ;;
-esac
+if [ -s $HOME/Dropbox/src/autojump/profile.d/autojump.zsh ] ; then
+  path=(${HOME}/Dropbox/src/autojump/bin ${path})
+  fpath=(${HOME}/Dropbox/src/autojump/functions ${fpath})
+  source $HOME/Dropbox/src/autojump/profile.d/autojump.zsh
+fi
 export AUTOJUMP_IGNORE_CASE=1
 # z
 # https://github.com/rupa/z
