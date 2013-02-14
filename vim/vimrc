@@ -215,7 +215,7 @@ if (&t_Co >2 && has("syntax")) || has("gui_running")
   "elseif &t_Co >80
     "colorscheme inkpot
   else
-    colorscheme inkpot16
+    colorscheme inkpot
   endif
 endif
 " }}}
