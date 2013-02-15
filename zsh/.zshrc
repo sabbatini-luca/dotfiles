@@ -231,11 +231,8 @@ alc() {
   fi
 }
 
-unpack() {
-  if [[ -z "$1" ]] ; then
-    print -P "usage: unpack < filename >"
-    print -P "       Extract the file specified based on the extension"
-  elif [[ -f $1 ]] ; then
+h() {
+  if [[ -f "$1" ]]; then
     case ${(L)1} in
       (*.tar|*.tbz2|*.tgz|*.tar.bz2|*.tar.gz) tar xvf $1 ;;
       (*.tar.xz)  tar Jxvf $1 ;;
@@ -253,19 +250,18 @@ unpack() {
           (*) unzip $1               ;;
         esac
       ;;
-      (*)
-        echo "Unable to unpack '$1' :: Unknown extension"
-        ;;
+      (*.mp3) mplayer -demuxer lavf $1 ;;
+      (*.ogg) mplayer -demuxer ogg $1 ;;
     esac
   else
     echo "File ('$1') does not exist!"
   fi
 }
-_unpack() {
-  _files -g '*.(tar|tbz2|tgz|bz2|gz|xz|jar|xpi|rar|7z|Z|lzh|zip)(-.)' && return 0
+_h() {
+  _files -g '*.(tar|tbz2|tgz|bz2|gz|xz|jar|xpi|rar|7z|Z|lzh|zip|mp3|ogg)(-.)' && return 0
   return 1
 }
-compdef _unpack unpack
+compdef _h h
 
 # get flash video
 flashvids() { lsof -p `ps x | awk '/libflashplayer.so\ /{print $1}'` -n 2>/dev/null | perl -lne '@F = split(/ +/, $_, 9); print "/proc/$F[1]/fd/${\($F[3] =~ /(^\d+)/)[0]}" if $F[4] eq "REG" && $F[8] =~ /\/tmp\/Flash.*\(deleted\)$/'; }
@@ -275,22 +271,6 @@ if [ -f /etc/zsh_command_not_found ]; then
   . /etc/zsh_command_not_found
 fi
 
-mp() {
-  if [[ -f $1 ]] ; then
-    case ${(L)1} in
-      (*.mp3) mplayer -demuxer lavf $1 ;;
-      (*.ogg) mplayer -demuxer ogg $1 ;;
-      (*) ;;
-    esac
-  else
-    echo "File ('$1') does not exist!"
-  fi
-}
-_mp() {
-  _files -g '*.(mp3|ogg)(-.)' && return 0
-  return 1
-}
-compdef _mp mp
 # }}}
 # keybind {{{
 #bindkey -e # Emacs
