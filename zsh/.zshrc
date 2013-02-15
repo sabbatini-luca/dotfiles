@@ -275,6 +275,22 @@ if [ -f /etc/zsh_command_not_found ]; then
   . /etc/zsh_command_not_found
 fi
 
+mp() {
+  if [[ -f $1 ]] ; then
+    case ${(L)1} in
+      (*.mp3) mplayer -demuxer lavf $1 ;;
+      (*.ogg) mplayer -demuxer ogg $1 ;;
+      (*) ;;
+    esac
+  else
+    echo "File ('$1') does not exist!"
+  fi
+}
+_mp() {
+  _files -g '*.(mp3|ogg)(-.)' && return 0
+  return 1
+}
+compdef _mp mp
 # }}}
 # keybind {{{
 #bindkey -e # Emacs
