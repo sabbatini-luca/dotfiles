@@ -106,7 +106,7 @@ zshaddhistory() {
         && ${cmd} != (rm)
         && ${cmd} != (j)
         && ${cmd} != (jc)
-        && ${cmd} != (unpack)
+        && ${cmd} != (h)
         && ${line} != (kill -KILL *)
         #&& ${cmd} != (mv)
         #&& ${cmd} != (cp)
