@@ -26,7 +26,7 @@ style chrome://* menuseparator.bookmarks-actions-menuseparator, menuitem.openint
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 map <C-h> <Nop>
-nmap b <PageUp>
+nmap b <S-Space>
 nnoremap j 3j
 nnoremap k 3k
 "noremap > l
