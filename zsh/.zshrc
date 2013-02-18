@@ -7,10 +7,11 @@ fi
 # Jump {{{
 # autojump
 # https://github.com/joelthelion/autojump
-if [ -s $HOME/Dropbox/src/autojump/profile.d/autojump.zsh ] ; then
-  path=(${HOME}/Dropbox/src/autojump/bin ${path})
-  fpath=(${HOME}/Dropbox/src/autojump/functions ${fpath})
-  source $HOME/Dropbox/src/autojump/profile.d/autojump.zsh
+aj_version=21.4.6
+if [ -s ${HOME}/Dropbox/src/autojump/${aj_version}/etc/autojump.zsh ] ; then
+  path=(${HOME}/Dropbox/src/autojump/${aj_version}/bin ${path})
+  fpath=(${HOME}/Dropbox/src/autojump/${aj_version}/func ${fpath})
+  source ${HOME}/Dropbox/src/autojump/${aj_version}/etc/autojump.zsh
 fi
 export AUTOJUMP_IGNORE_CASE=1
 # z
