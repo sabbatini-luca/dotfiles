@@ -15,8 +15,16 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'ciaranm/inkpot'
 NeoBundle 'othree/eregex.vim'
+"nnoremap / :M/
+"nnoremap ? :M?
+"nnoremap ,/ /
+"nnoremap ,? ?
 NeoBundle 'superbrothers/vim-vimperator'
 NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'Lokaltog/vim-powerline'
+let g:Powerline_symbols='fancy'
+let g:Powerline_colorscheme='solarized256'
+let g:Powerline_cache_dir=$HOME . "/.cache"
 " vim-scripts
 NeoBundle 'sudo.vim'
 " }}}
@@ -95,47 +103,47 @@ if has("iconv")
 endif
 " }}}
 "Statusline {{{1
-if has("statusline")
-  function! GetEFstatus()
-    let str = ''
-    let fenc = ''
-    if &fileformat == 'unix'
-      let str = '[UNI]'
-    else
-      let str = '[' . &fileformat . ']'
-    endif
-    if &fileencoding != ''
-      if &fileencoding =~# 'iso-2022-jp'
-        let fenc = 'J'
-      elseif &fileencoding == 'utf-8'
-        let fenc = 'U'
-      elseif &fileencoding == 'cp932'
-        let fenc = 'S'
-      elseif &fileencoding =~# 'euc-j'
-        let fenc = 'E'
-      else
-        let fenc = &fileencoding
-      endif
-      let str = str . '[' . fenc . ']'
-    else
-      let str = str . '[-]'
-    endif
-    unlet fenc
-    return str
-  endfunction
+"if has("statusline")
+  "function! GetEFstatus()
+    "let str = ''
+    "let fenc = ''
+    "if &fileformat == 'unix'
+      "let str = '[UNI]'
+    "else
+      "let str = '[' . &fileformat . ']'
+    "endif
+    "if &fileencoding != ''
+      "if &fileencoding =~# 'iso-2022-jp'
+        "let fenc = 'J'
+      "elseif &fileencoding == 'utf-8'
+        "let fenc = 'U'
+      "elseif &fileencoding == 'cp932'
+        "let fenc = 'S'
+      "elseif &fileencoding =~# 'euc-j'
+        "let fenc = 'E'
+      "else
+        "let fenc = &fileencoding
+      "endif
+      "let str = str . '[' . fenc . ']'
+    "else
+      "let str = str . '[-]'
+    "endif
+    "unlet fenc
+    "return str
+  "endfunction
 
-  set statusline=
-  set statusline+=[%{strlen(&ft)?&ft:'notype'}] "ファイルタイプ
-  set statusline+=%-40.40f                    "左寄せ、最大最小50文字
-                                              "相対パスでファイル名
-  set statusline+=%16(%#todo#%m%r%*%{GetEFstatus()}%)
-                                              "16文字分のスペースで修正フラグ
-                                              "読み込み専用フラグ、GetEFstatus
-  set statusline+=%=                          "左寄せの区切り
-  set statusline+=%l\                         "カレント行数
-  set statusline+=/
-  set statusline+=%5P                         "カレント行の割合を5文字幅で
-endif
+  "set statusline=
+  "set statusline+=[%{strlen(&ft)?&ft:'notype'}] "ファイルタイプ
+  "set statusline+=%-40.40f                    "左寄せ、最大最小50文字
+                                              ""相対パスでファイル名
+  "set statusline+=%16(%#todo#%m%r%*%{GetEFstatus()}%)
+                                              ""16文字分のスペースで修正フラグ
+                                              ""読み込み専用フラグ、GetEFstatus
+  "set statusline+=%=                          "左寄せの区切り
+  "set statusline+=%l\                         "カレント行数
+  "set statusline+=/
+  "set statusline+=%5P                         "カレント行の割合を5文字幅で
+"endif
 " }}}
 "Keymap {{{1
 if has("keymap")
@@ -154,7 +162,8 @@ if has("keymap")
   nnoremap b <PageUp>
 
   "検索ハイライトを消す
-  noremap <silent><Leader>/ :nohlsearch<CR>
+  "http://stackoverflow.com/questions/99161/how-do-you-make-vim-unhighlight-what-you-searched-for
+  noremap <silent> <C-L> :nohlsearch<CR><C-L>
 
   "インデント操作後、同範囲を再び選択
   vnoremap < <gv
@@ -180,12 +189,6 @@ if has("keymap")
     inoremap <silent> <Esc> <Esc>
     inoremap <silent> <C-[> <Esc>
   endif
-
-  " for eregex.vim
-  "nnoremap / :M/
-  "nnoremap ? :M?
-  "nnoremap ,/ /
-  "nnoremap ,? ?
 
 endif
 " }}}
@@ -240,8 +243,8 @@ if has("autocmd")
 
   " change status line based on mode
   " for Solarized colorscheme
-  autocmd InsertEnter * hi StatusLine term=reverse cterm=reverse ctermfg=169 ctermbg=235 gui=bold,reverse guifg=#D33682 guibg=#073642
-  autocmd InsertLeave * hi StatusLine term=reverse cterm=reverse ctermfg=245 ctermbg=235 gui=bold,reverse guifg=#93A1A1 guibg=#073642
+  "autocmd InsertEnter * hi StatusLine term=reverse cterm=reverse ctermfg=169 ctermbg=235 gui=bold,reverse guifg=#D33682 guibg=#073642
+  "autocmd InsertLeave * hi StatusLine term=reverse cterm=reverse ctermfg=245 ctermbg=235 gui=bold,reverse guifg=#93A1A1 guibg=#073642
 endif
 " }}}
 

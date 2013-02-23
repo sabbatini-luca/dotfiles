@@ -80,27 +80,27 @@ URxvt.fading:                20
 #ifdef ARCH
 URxvt.geometry: 80x25
 URxvt.font:\
-    xft:Monaco:pixelsize=15:antialias=true,\
+    xft:Monaco for Powerline:pixelsize=15:antialias=true,\
     xft:Migu 1M:pixelsize=15:antialias=true,\
     xft:Meiryo:pixelsize=15:antialias=true,\
     xft:Gulim:pixelsize=15:antialias=true
 URxvt.boldFont:\
-    xft:Monaco:bold:pixelsize=15:antialias=true,\
+    xft:Monaco for Powerline:bold:pixelsize=15:antialias=true,\
     xft:Migu 1M:bold:pixelsize=15:antialias=true,\
     xft:Meiryo:bold:pixelsize=15:antialias=true,\
     xft:Gulim:bold:pixelsize=15:antialias=true
 URxvt.italicFont:\
-    xft:Monaco:pixelsize=15:italic:antialias=true,\
+    xft:Monaco for Powerline:pixelsize=15:italic:antialias=true,\
     xft:Migu 1M:italic:pixelsize=15:antialias=true,\
     xft:Meiryo:italic:pixelsize=15:antialias=true,\
     xft:Gulim:italic:pixelsize=15:antialias=true
 URxvt.boldItalicFont:\
-    xft:Monaco:pixelsize=15:bold:italic:antialias=true,\
+    xft:Monaco for Powerline:pixelsize=15:bold:italic:antialias=true,\
     xft:Migu 1M:bold:italic:pixelsize=15:antialias=true,\
     xft:Meiryo:bold:italic:pixelsize=15:antialias=true,\
     xft:Gulim:bold:italic:pixelsize=15:antialias=true
 !URxvt.imFont: -alias-fixed-medium-r-*-16-*
-URxvt.lineSpace: 3
+URxvt.lineSpace: 2
 #endif
 #ifdef UBUNTU
 URxvt.geometry: 80x28
