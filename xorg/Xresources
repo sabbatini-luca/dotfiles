@@ -105,27 +105,27 @@ URxvt.lineSpace: 2
 #ifdef UBUNTU
 URxvt.geometry: 80x28
 URxvt.font:\
-    xft:Monaco:pixelsize=18:antialias=true,\
+    xft:Monaco for Powerline:pixelsize=18:antialias=true,\
     xft:Migu 1M:pixelsize=18:antialias=true,\
     xft:Meiryo:pixelsize=18:antialias=true,\
     xft:NanumGothic:pixelsize=18:antialias=true
 URxvt.boldFont:\
-    xft:Monaco:bold:pixelsize=18:antialias=true,\
+    xft:Monaco for Powerline:bold:pixelsize=18:antialias=true,\
     xft:Migu 1M:bold:pixelsize=18:antialias=true,\
     xft:Meiryo:bold:pixelsize=18:antialias=true,\
     xft:NanumGothic:bold:pixelsize=18:antialias=true
 URxvt.italicFont:\
-    xft:Monaco:italic:pixelsize=18:antialias=true,\
+    xft:Monaco for Powerline:italic:pixelsize=18:antialias=true,\
     xft:Migu 1M:italic:pixelsize=18:antialias=true,\
     xft:Meiryo:italic:pixelsize=18:antialias=true,\
     xft:NanumGothic:italic:pixelsize=18:antialias=true
 URxvt.boldItalicFont:\
-    xft:Monaco:bold:italic:pixelsize=18:antialias=true,\
+    xft:Monaco for Powerline:bold:italic:pixelsize=18:antialias=true,\
     xft:Migu 1M:bold:italic:pixelsize=18:antialias=true,\
     xft:Meiryo:bold:italic:pixelsize=18:antialias=true,\
     xft:NanumGothic:bold:italic:pixelsize=18:antialias=true
 !URxvt.imFont: -*-medium-r-*-20-*
-URxvt.lineSpace: 4
+URxvt.lineSpace: 2
 #endif
 !! }}}
 
