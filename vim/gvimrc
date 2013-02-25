@@ -1,13 +1,15 @@
 if $DISTRO == "Arch"
   set lines=30
   "set linespace=2
-  set guifont=Monaco\ for\ Powerline\ 13
-  set guifontwide=Migu\ 1M\ 13
+  " guifontwideを設定するとなぜかボールドやらイタリックやらが表示されないので
+  " guifontだけに設定してみる
+  set guifont=Monaco\ for\ Powerline\ 13,Migu\ 1M\ 13
+  "set guifontwide=Migu\ 1M\ 13
 elseif $DISTRO == "Ubuntu"
   set lines=32
   set linespace=2
-  set guifont=Monaco\ for\ Powerline\ 14
-  set guifontwide=Migu\ 1M\ 14
+  set guifont=Monaco\ for\ Powerline\ 14,Migu\ 1M\ 14
+  "set guifontwide=Migu\ 1M\ 14
 endif
 
 set guioptions-=T
