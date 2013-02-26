@@ -75,7 +75,7 @@ URxvt.iso14755_52: false
 URxvt.depth:                 32
 URxvt.background:            rgba:0000/2b00/3600/dddd
 URxvt.foreground:            S_base0
-URxvt.fading:                20
+URxvt.fading:                0
 
 #ifdef ARCH
 URxvt.geometry: 80x25
