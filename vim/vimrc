@@ -18,6 +18,8 @@ let g:solarized_termtrans=1
 "let g:solarized_contrast='high'
 let g:solarized_visibility='normal'
 let $TERM_PROGRAM='rxvt'          "for italic font
+NeoBundle 'w0ng/vim-hybrid'
+"let g:hybrid_use_Xresources=1
 NeoBundle 'ciaranm/inkpot'
 NeoBundle 'othree/eregex.vim'
 "nnoremap / :M/
