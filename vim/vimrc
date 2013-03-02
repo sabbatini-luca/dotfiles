@@ -20,7 +20,6 @@ let g:solarized_visibility='normal'
 let $TERM_PROGRAM='rxvt'          "for italic font
 NeoBundle 'w0ng/vim-hybrid'
 "let g:hybrid_use_Xresources=1
-NeoBundle 'ciaranm/inkpot'
 NeoBundle 'othree/eregex.vim'
 "nnoremap / :M/
 "nnoremap ? :M?
@@ -218,7 +217,7 @@ if (&t_Co >2 && has("syntax")) || has("gui_running")
   "elseif &t_Co >80
     "colorscheme inkpot
   else
-    colorscheme inkpot
+    "colorscheme inkpot
   endif
 endif
 " }}}
