@@ -15,9 +15,9 @@ set status=input,location,bookmark,history,position
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight
-hi Hint font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; line-height: 1; color: black; background-color: #5FF; border-color: ButtonShadow; border-width: 1px; border-style: solid; padding: 1px; z-index: 99999;
-hi -append CompDesc color: #272;
-hi -append StatusLine color: #44A;
+"hi Hint font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; line-height: 1; color: black; background-color: #5FF; border-color: ButtonShadow; border-width: 1px; border-style: solid; padding: 1px; z-index: 99999;
+"hi -append CompDesc color: #272;
+"hi -append StatusLine color: #44A;
 
 style chrome://* #statusbar-display[type="overLink"] {display: none !important;}
 " ブックマークの「タブですべて開く」を非表示に
@@ -96,6 +96,8 @@ qmark y http://www.youtube.com/videos?feature=mh
 source ~/Dropbox/src/dotfiles/vimperator/vimppluginrc
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme   solarizedlight
+
 " Firefox preference
 set! geo.enabled=false
 set! noscript.sync.enabled=true
