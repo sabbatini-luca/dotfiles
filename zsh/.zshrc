@@ -1,7 +1,17 @@
+if [ -n "$DISPLAY" ]; then
+  export LANG=ja_JP.UTF-8
+else
+  export LANG=en_US.UTF-8
+fi
+
 # LS_COLOR
-dir_colors=$HOME/Dropbox/src/dotfiles/external/dircolors-solarized/dircolors.256dark
-if [ -f $dir_colors ]; then
-  eval `TERM=xterm-256color dircolors -b $dir_colors`
+sola_dir=$HOME/Dropbox/src/dotfiles/external/dircolors-solarized
+if [ -d $sola_dir ]; then
+  if [ -n "$DISPLAY" ]; then
+    eval `TERM=xterm-256color dircolors -b $sola_dir/dircolors.256dark`
+  else
+    eval `dircolors -b $sola_dir/dircolors.ansi-dark`
+  fi
 fi
 
 # Jump {{{
