@@ -53,12 +53,12 @@ hi  Normal  color: #93A1A1; background: #002B36;
 hi  Null  color: #268BD2;
 hi  Number  color: #268BD2;
 hi  Object  color: #B58900;
-hi  Preview   color: #93A1A1;
+hi  Preview   color: #586E75;
 hi  Prompt  background: url("chrome://liberator/skin/prompt.png"); width: 10px; background-position: center; background-repeat: no-repeat;
 hi  PromptText  color: #073642; background: #6C71C4;
 hi  Question  color: #859900; background: #002B36; font-weight: bold;
 "hi  Search
-hi  StatusLine  color: #93A1A1; background: transparent; font-weight: normal;
+hi  StatusLine  color: #586E75; background: transparent; font-weight: normal;
 hi  String  color: #859900;
 "hi  TabClose
 "hi  TabIcon
