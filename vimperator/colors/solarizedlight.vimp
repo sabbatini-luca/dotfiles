@@ -58,7 +58,7 @@ hi  Prompt  background: url("chrome://liberator/skin/prompt.png"); width: 10px; 
 hi  PromptText  color: #FDF6E3; background: #6C71C4;
 hi  Question  color: #859900; background: #FDF6E3; font-weight: bold;
 "hi  Search
-hi  StatusLine  color: #93A1A1; background: transparent; font-weight: normal;
+hi  StatusLine  color: #657B83; background: transparent; font-weight: normal;
 hi  String  color: #859900;
 "hi  TabClose
 "hi  TabIcon
