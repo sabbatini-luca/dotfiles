@@ -83,7 +83,7 @@ qmark c http://semicicada.blog.fc2.com/
 qmark d https://www.dropbox.com/
 qmark e http://www.evernote.com/Home.action
 qmark f http://skb.2chfootball.net/
-qmark g http://www.google.co.jp/
+qmark g https://www.google.co.jp/
 qmark l http://reader.livedoor.com/reader/
 qmark m https://mail.google.com/
 qmark n http://news.google.co.jp/nwshp?hl=ja&tab=wn
@@ -97,17 +97,6 @@ source ~/Dropbox/src/dotfiles/vimperator/vimppluginrc
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme   solarizedlight
-hi Hint -append font-size: medium;
-hi  HintExt  font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; color: #FDF6E3; background-color: #DC322F; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 1px;
-hi  HintExtActive  background-color: rgba(133,153,0,.3);
-hi  HintExtActive>*  background-color: #268BD2;
-hi  HintExtActive>span  background-color: #268BD2;
-hi  HintExtElem  border: 1px solid rgba(147,161,161,.5); -moz-border-radius: 2px; background-color: rgba(238,232,213, .1); -moz-box-sizing: border-box;
-
-" Firefox preference
-set! geo.enabled=false
-set! noscript.sync.enabled=true
-set! network.http.spdy.enabled=true
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Firefox 12 Bug?

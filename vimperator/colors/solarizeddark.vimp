@@ -27,7 +27,7 @@ hi  ErrorMsg  color: #FDF6E3; background: #DC322F; font-weight: bold;
 hi  Filter  border-radius: 2px; background: #073642; border: 1px solid #B58900;
 hi  FrameIndicator  background-color: #DC322F; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 hi  Function  color: 268BD2;
-hi  Hint  font-family: monospace; font-size: 10px; font-weight: bold; text-transform: uppercase; color: #FDF6E3; background-color: #DC322F; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 1px;
+hi  Hint  font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; color: #FDF6E3; background-color: #DC322F; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 1px;
 hi  Hint::after   content: attr(number);
 hi  HintActive  background-color: #859900; color: #586E75;
 hi  HintElem  background-color: #B58900;  color: #586E75;
@@ -64,3 +64,15 @@ hi  Title   color: #6C71C4; background: #002B36; font-weight: bold; font-size: 1
 hi  URL   text-decoration: none; color: #268BD2;
 hi  URL:hover   text-decoration: underline; cursor: pointer;
 hi  WarningMsg  color: #DC322F; background: #002B36;
+
+" hints-ext.js
+hi  HintExt  font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; color: #FDF6E3; background-color: #DC322F; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 1px;
+hi  HintExtActive  background-color: rgba(133,153,0,.3);
+hi  HintExtActive>*  background-color: #268BD2;
+hi  HintExtActive>span  background-color: #268BD2;
+hi  HintExtElem  border: 1px solid rgba(147,161,161,.5); -moz-border-radius: 2px; background-color: rgba(238,232,213, .1); -moz-box-sizing: border-box;
+
+" statusline-ssl.js
+hi  StatusLineBroken  color: #002B36; background-color: #DC322F;
+hi  StatusLineSecure  color: #FDF6E3; background-color: #268BD2;
+hi  StatusLineExtended  color: #FDF6E3; background-color: #859900;

@@ -57,10 +57,6 @@ nmap <silent> En :noscript toggleperm<CR>
 " appendAnchor.js
 nmap <silent> ,a :anc<CR>
 
-" statusline-toolbar.js
-set statuslinetoolbars=identity-box,feed-button
-style chrome://* -append #status-bar {color: #586E75 !important;background-color: #FDF6E3 !important;}
-
 " hints-ext.js
 "hi HintExt font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; line-height: 1; color: black; background-color: #5FF; border-color: ButtonShadow; border-width: 1px; border-style: solid; padding: 1px; z-index: 99999;
 "hi -append HintExtActive>span background-color: yellow;
