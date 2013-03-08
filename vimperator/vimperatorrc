@@ -96,7 +96,7 @@ qmark y http://www.youtube.com/videos?feature=mh
 source ~/Dropbox/src/dotfiles/vimperator/vimppluginrc
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme   solarizedlight
+colorscheme   solarized_dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Firefox 12 Bug?
