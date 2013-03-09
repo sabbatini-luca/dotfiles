@@ -24,7 +24,7 @@ hi  ContentSeparator  border-top: 1px dotted #93A1A1; display: -moz-box;
 hi  Disabled  color: #DC322F;
 hi  Enabled   color: #859900;
 hi  ErrorMsg  color: #FDF6E3; background: #DC322F; font-weight: bold;
-hi  Filter  border-radius: 2px; background: #073642; border: 1px solid #B58900;
+hi  Filter  color: #CB4B16; font-weight: bold;
 hi  FrameIndicator  background-color: #DC322F; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 hi  Function  color: 268BD2;
 hi  Hint  font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; color: #FDF6E3; background-color: #DC322F; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 1px;
