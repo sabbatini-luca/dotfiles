@@ -21,10 +21,7 @@ let $TERM_PROGRAM='rxvt'          "for italic font
 NeoBundle 'w0ng/vim-hybrid'
 "let g:hybrid_use_Xresources=1
 NeoBundle 'othree/eregex.vim'
-"nnoremap / :M/
-"nnoremap ? :M?
-"nnoremap ,/ /
-"nnoremap ,? ?
+let g:eregex_default_enable = 0
 NeoBundle 'superbrothers/vim-vimperator'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'Lokaltog/vim-powerline'
@@ -153,6 +150,12 @@ endif
 " }}}
 "Keymap {{{1
 if has("keymap")
+  " 次の文字を入力するまでの待ち時間で、デフォルトは1秒
+  " ちと短い
+  set timeoutlen=2000
+  " mapleaderを変更 デフォルトはバックスラッシュ
+  let mapleader = ","
+
   nnoremap j gj
   nnoremap gj j
   nnoremap k gk
@@ -187,14 +190,14 @@ if has("keymap")
   cnoremap <C-N> <Down>
   cnoremap <C-P> <Up>
 
-  " mapleaderを変更 デフォルトはバックスラッシュ
-  let mapleader = ","
-
   " CUIでのStatuslineの色変更遅延対策
   if has('unix') && !has('gui_running')
     inoremap <silent> <Esc> <Esc>
     inoremap <silent> <C-[> <Esc>
   endif
+
+  " eregex.vim
+  nnoremap <leader>/ :call eregex#toggle()<CR>
 
 endif
 " }}}
