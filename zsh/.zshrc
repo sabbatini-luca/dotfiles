@@ -24,6 +24,7 @@ if [ -s ${HOME}/Dropbox/src/autojump/${aj_version}/etc/autojump.zsh ] ; then
   source ${HOME}/Dropbox/src/autojump/${aj_version}/etc/autojump.zsh
 fi
 export AUTOJUMP_IGNORE_CASE=1
+export AUTOJUMP_KEEP_SYMLINKS=1
 # z
 # https://github.com/rupa/z
 #if [ -f $HOME/Dropbox/src/zsh/z/z.sh ]; then
