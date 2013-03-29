@@ -20,8 +20,8 @@ let g:solarized_visibility='normal'
 let $TERM_PROGRAM='rxvt'          "for italic font
 NeoBundle 'w0ng/vim-hybrid'
 "let g:hybrid_use_Xresources=1
-NeoBundle 'othree/eregex.vim'
-let g:eregex_default_enable = 0
+"NeoBundle 'othree/eregex.vim'
+"let g:eregex_default_enable = 0
 NeoBundle 'superbrothers/vim-vimperator'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'Lokaltog/vim-powerline'
@@ -197,7 +197,7 @@ if has("keymap")
   endif
 
   " eregex.vim
-  nnoremap <leader>/ :call eregex#toggle()<CR>
+  "nnoremap <leader>/ :call eregex#toggle()<CR>
 
 endif
 " }}}
