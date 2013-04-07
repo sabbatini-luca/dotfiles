@@ -29,8 +29,8 @@ hi  FrameIndicator  background-color: #DC322F; opacity: 0.5; z-index: 999; posit
 hi  Function  color: 268BD2;
 hi  Hint  font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; color: #FDF6E3; background-color: #DC322F; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 1px;
 hi  Hint::after   content: attr(number);
-hi  HintActive  background-color: #859900; color: #586E75;
-hi  HintElem  background-color: #B58900;  color: #586E75;
+hi  HintActive  background-color: rgba(133,153,0,0.5); color: #586E75;
+hi  HintElem  background-color: rgba(181,137,0,0.2);  color: #586E75;
 hi  HintImage   opacity: .5;
 hi  Indicator   color: #268BD2;
 hi  InfoMsg   color: #D33682; background: #002B36;
