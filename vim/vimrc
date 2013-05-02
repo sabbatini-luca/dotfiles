@@ -167,6 +167,7 @@ if has("keymap")
   vnoremap k gk
   vnoremap gk k
   nmap <Space> <PageDown>
+  nnoremap Q <Nop>
 
   "word単位で後方移動
   nnoremap <C-B> b
