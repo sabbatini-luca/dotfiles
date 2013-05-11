@@ -164,7 +164,7 @@ _change_rprompt() {
   if [ $PWD = $HOME ]; then
     RPROMPT="[%{$fg_bold[white]%}%T%{$reset_color%}]"
   elif [ ! -s $DISPLAY ]; then
-    RPROMPT="[%{$fg[cyan]%}%60<..<%~%{$reset_color%}]"
+    RPROMPT="[%{$fg[cyan]%}%40<..<%~%{$reset_color%}]"
   else
     RPROMPT="[%60<..<%~]"
   fi
