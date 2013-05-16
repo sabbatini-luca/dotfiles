@@ -21,8 +21,6 @@ let g:solarized_visibility='normal'
 let $TERM_PROGRAM='rxvt'          "for italic font
 NeoBundle 'w0ng/vim-hybrid'
 "let g:hybrid_use_Xresources=1
-"NeoBundle 'othree/eregex.vim'
-"let g:eregex_default_enable = 0
 NeoBundle 'superbrothers/vim-vimperator'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'Lokaltog/vim-powerline'
@@ -174,8 +172,12 @@ if has("keymap")
   nnoremap b <PageUp>
 
   "検索ハイライトを消す
-  "http://stackoverflow.com/questions/99161/how-do-you-make-vim-unhighlight-what-you-searched-for
+  " http://stackoverflow.com/questions/99161/how-do-you-make-vim-unhighlight-what-you-searched-for
   noremap <silent> <C-L> :nohlsearch<CR><C-L>
+
+  "パターンマッチはvery magicを使うようにする
+  " http://deris.hatenablog.jp/entry/2013/05/15/024932
+  nnoremap / /\v
 
   "インデント操作後、同範囲を再び選択
   vnoremap < <gv
@@ -198,9 +200,6 @@ if has("keymap")
     inoremap <silent> <Esc> <Esc>
     inoremap <silent> <C-[> <Esc>
   endif
-
-  " eregex.vim
-  "nnoremap <leader>/ :call eregex#toggle()<CR>
 
   " vim-anzu
   nmap n <Plug>(anzu-n-with-echo)
