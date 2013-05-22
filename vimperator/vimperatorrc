@@ -71,6 +71,10 @@ nmap ,h :oh
 
 "現在のページのInternet Archiveを見る
 "noremap <silent> ,4 :open javascript:(location.href='http://web.archive.org/web/*/'+location.href)<CR>
+
+"縮小された画像表示を等倍にする
+nnoremap <silent> zs :js if (content.document instanceof ImageDocument) content.document.images[0].click();<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " qmark
 delqmarks!
