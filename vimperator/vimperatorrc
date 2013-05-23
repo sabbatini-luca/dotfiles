@@ -73,7 +73,9 @@ nmap ,h :oh
 "noremap <silent> ,4 :open javascript:(location.href='http://web.archive.org/web/*/'+location.href)<CR>
 
 "縮小された画像表示を等倍にする
-nnoremap <silent> zs :js if (content.document instanceof ImageDocument) content.document.images[0].click();<CR>
+" http://anago.2ch.net/test/read.cgi/software/1282406907/
+"nnoremap <silent> zs :js if (content.document instanceof ImageDocument) content.document.images[0].click();<CR>
+nnoremap <silent> zs :js if (content.document instanceof ImageDocument) content.document.toggleImageSize();<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " qmark
