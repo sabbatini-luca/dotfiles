@@ -341,6 +341,23 @@ _cdup() {
 zle -N _cdup
 bindkey '^\^' _cdup
 
+#Enterだけでls
+#http://qiita.com/yuyuchu3333/items/e9af05670c95e2cc5b4d
+_do_enter() {
+  if [ -n "$BUFFER" ]; then
+    zle accept-line
+    return 0
+  fi
+  echo
+
+  ls -vCF --color=auto --group-directories-first
+
+  zle reset-prompt
+  return 0
+}
+zle -N _do_enter
+bindkey '^m' _do_enter
+
 #こっちの方が使いやすい
 zle -A .backward-kill-word vi-backward-kill-word
 zle -A .backward-delete-char vi-backward-delete-char
