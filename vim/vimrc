@@ -74,6 +74,8 @@ set wildmode=longest,list,full
 set virtualedit+=block
 " PHPで文字列中のHTMLをハイライト
 let php_htmlInStrings=1
+" %移動を拡張
+source $VIMRUNTIME/macros/matchit.vim
 
 "iconv {{{1
 if has("iconv")
