@@ -1,13 +1,9 @@
-set runtimepath=~/.vimperator,~/Dropbox/src/dotfiles/vimperator
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Options
-set gui=noaddons,nobookmarks,menu,nonavigation,tabs
 set noscrollbars
 set complete=tl
 set focuscontent
 "set hlsearch
-set editor=~/bin/editor.sh
 set nextpattern=^次(へ|の|ペ),^続き,\bnext\b,^>$,^(>>|&#187;)$,^(>|&#187;),(>|&#187;)$,\bmore\b
 set previouspattern=^前(へ|の|ペ),^戻る,\bprev|previous\b,^<$,^(<<|&#171;)$,^(<|&#171;),(<|&#171;)$
 set hintchars="jfhgurkdie"
@@ -97,16 +93,5 @@ qmark p http://picasaweb.google.com/
 qmark s http://sportsnavi.yahoo.co.jp/sports/soccer/
 qmark t https://twitter.com/home
 qmark y http://www.youtube.com/videos?feature=mh
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" load plugin setting
-source ~/Dropbox/src/dotfiles/vimperator/vimppluginrc
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme   solarized_dark
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Firefox 12 Bug?
-imap <C-h> <BS>
-cmap <C-h> <BS>
 
 " vim: set ft=vimperator:
