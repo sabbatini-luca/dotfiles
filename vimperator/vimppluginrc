@@ -104,14 +104,6 @@ addLocalMappings(
     ['-',     ':stvolume! -10',   ],
     ['h',     ':stseek! -10',     ],
     ['l',     ':stseek! 10',      ],
-    ['k',     ':stvolume! 10',    ],
-    ['j',     ':stvolume! -10',   ],
-    ['s',     ':stseek ',         {open: true}],
-    ['S',     ':stseek! ',        {open: true}],
-    ['v',     ':stvolume ',       {open: true}],
-    ['V',     ':stvolume! ',      {open: true}],
-    ['o',     ':strelations ',    {open: true}],
-    ['O',     ':strelations! ',   {open: true}],
   ]
 );
 EOF

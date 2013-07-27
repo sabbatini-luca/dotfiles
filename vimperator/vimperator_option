@@ -94,4 +94,8 @@ qmark s http://sportsnavi.yahoo.co.jp/sports/soccer/
 qmark t https://twitter.com/home
 qmark y http://www.youtube.com/videos?feature=mh
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" コマンドラインでIMEをオフにする。Windowsのみ
+style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+
 " vim: set ft=vimperator:
