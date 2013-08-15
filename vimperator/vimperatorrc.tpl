@@ -15,6 +15,7 @@ source ~/Dropbox/src/dotfiles/vimperator/vimppluginrc
 "source D:\\Dropbox\\src\\dotfiles\\vimperator\\vimperator_option
 "set gui=none
 "set gui=navigation,tabs
+"set editor="C:\\\\Program\\\ Files\\\ (x86)\\\\Vim\\\\vim73\\\\gvim.exe -f -c ':set fenc=utf-8'"
 
 "source D:\\Dropbox\\src\\dotfiles\\vimperator\\vimppluginrc
 

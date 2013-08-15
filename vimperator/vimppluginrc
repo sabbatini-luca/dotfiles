@@ -102,8 +102,8 @@ addLocalMappings(
     ['r',     ':strepeat',        ],
     ['+',     ':stvolume! 10',    ],
     ['-',     ':stvolume! -10',   ],
-    ['h',     ':stseek! -10',     ],
-    ['l',     ':stseek! 10',      ],
+    ['h',     ':stseek! -15',     ],
+    ['l',     ':stseek! 15',      ],
   ]
 );
 EOF
