@@ -54,6 +54,9 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
 #小文字を入力した場合は大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+#../の後は現ディレクトリを無視
+zstyle ':completion:*' ignore-parents parent pwd ..
+
 #補完メニューを表示
 zstyle ':completion:*:default' menu select
 
