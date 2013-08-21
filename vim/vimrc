@@ -23,10 +23,15 @@ NeoBundle 'w0ng/vim-hybrid'
 "let g:hybrid_use_Xresources=1
 NeoBundle 'superbrothers/vim-vimperator'
 NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols='fancy'
-let g:Powerline_colorscheme='solarized256'
-let g:Powerline_cache_dir=$HOME . "/.cache"
+NeoBundle 'bling/vim-airline'
+"let g:airline_powerline_fonts=1
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline#extensions#branch#symbol = '⭠'
+let g:airline#extensions#readonly#symbol = '⭤'
+let g:airline_linecolumn_prefix = '⭡'
 " vim-scripts
 NeoBundle 'sudo.vim'
 " }}}
