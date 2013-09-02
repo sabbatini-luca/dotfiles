@@ -35,7 +35,18 @@ NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'itchyny/lightline.vim'
 let g:lightline = {
       \ 'colorscheme': 'solarized',
-      \ 'component': {'readonly': '%{&readonly?"⭤":""}', },
+      \ 'active': {
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'filetype' ],
+      \              [ 'fileformat', 'fileencoding' ] ]
+      \ },
+      \ 'inactive': {
+      \   'right': [ [ 'lineinfo' ] ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \   'lineinfo': '%4l/%L'
+      \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
