@@ -15,7 +15,7 @@ set status=input,location,bookmark,history,position
 "hi -append CompDesc color: #272;
 "hi -append StatusLine color: #44A;
 
-style chrome://* #statusbar-display[type="overLink"] {display: none !important;}
+style chrome://* statuspanel[type="overLink"] {display: none !important;}
 " ブックマークの「タブですべて開く」を非表示に
 style chrome://* menuseparator.bookmarks-actions-menuseparator, menuitem.openintabs-menuitem {display: none !important;}
 
