@@ -65,6 +65,9 @@ URxvt.perl-ext: xim-onthespot
 #ifdef IBUS
 URxvt.inputMethod: ibus
 #endif
+#ifdef FCITX
+URxvt.inputMethod: fcitx
+#endif
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 URxvt.cutchars: "\"'"
