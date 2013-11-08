@@ -123,7 +123,7 @@ zshaddhistory() {
         && ${cmd} != (jc)
         && ${cmd} != (h)
         && ${line} != (kill -KILL *)
-        #&& ${cmd} != (mv)
+        && ${cmd} != (mv)
         #&& ${cmd} != (cp)
     ]]
 }
