@@ -13,6 +13,7 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=16
 let g:solarized_termtrans=1
@@ -232,6 +233,9 @@ if has("keymap")
   nmap N <Plug>(anzu-N-with-echo)
   nmap * <Plug>(anzu-star-with-echo)
   nmap # <Plug>(anzu-sharp-with-echo)
+
+  " vim-over
+  nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
 
 endif
 " }}}
