@@ -18,6 +18,8 @@ set mouse=nvc
 set guicursor=a:blinkon0
 set showtabline=2
 
+let g:lightline.colorscheme = 'solarized'
+
 if $GTK_IM_MODULE == "iiim"
   let $GTK_IM_MODULE='xim'
   set imactivatekey=C-space
