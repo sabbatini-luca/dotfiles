@@ -182,15 +182,15 @@ _reset_prompt() {
 typeset -ga precmd_functions
 precmd_functions+=_reset_prompt
 
-#case "${TERM}" in
-#kterm*|xterm*|mlterm)
-#  term_title() {
-#    echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-#  }
-#  typeset -ga precmd_functions
-#  precmd_functions+=term_title
-#  ;;
-#esac
+case "${TERM}" in
+xterm*|rxvt*)
+  term_title() {
+    echo -ne "\033]0;${PWD:t}\007"  #カレントディレクトリのみ表示
+  }
+  typeset -ga chpwd_functions
+  chpwd_functions+=term_title
+  ;;
+esac
 # }}}
 # function {{{
 #cdしたら、ファイル数が多いときに省略するls
