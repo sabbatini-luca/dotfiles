@@ -185,7 +185,7 @@ precmd_functions+=_reset_prompt
 case "${TERM}" in
 xterm*|rxvt*)
   term_title() {
-    echo -ne "\033]0;${PWD:t}\007"  #カレントディレクトリのみ表示
+    echo -ne "\033]0;${PWD:t} - terminal\007"  #カレントディレクトリのみ表示
   }
   typeset -ga chpwd_functions
   chpwd_functions+=term_title
