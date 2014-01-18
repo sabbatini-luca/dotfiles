@@ -17,7 +17,7 @@ fi
 # Jump {{{
 # autojump
 # https://github.com/joelthelion/autojump
-aj_version=21.4.6
+aj_version=21.6.9
 if [ -s ${HOME}/Dropbox/src/autojump/${aj_version}/etc/autojump.zsh ] ; then
   path=(${HOME}/Dropbox/src/autojump/${aj_version}/bin ${path})
   fpath=(${HOME}/Dropbox/src/autojump/${aj_version}/func ${fpath})
