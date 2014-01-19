@@ -300,8 +300,11 @@ bindkey -a 'H' run-help
 #bindkey -a '^M' undefined-key #vicmdでのEnterを抑制
 
 bindkey -v '^A' _expand_alias #aliasを展開
-bindkey -v '^R' history-incremental-search-backward
 bindkey -v '^Y' push-input #コマンドラインスタック
+
+#インクリメンタル履歴検索
+bindkey -v '^R' history-incremental-search-backward
+bindkey -v '^S' history-incremental-search-forward
 
 #メニュー選択移動をhjklで
 zmodload zsh/complist
