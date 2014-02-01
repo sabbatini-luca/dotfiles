@@ -1,35 +1,43 @@
-if [ -n "$DISPLAY" ]; then
-  export LANG=ja_JP.UTF-8
-else
-  export LANG=en_US.UTF-8
-fi
+case ${TERM} in
+  linux)
+    export LANGUAGE=en
+    export LANG=en_US.UTF-8
 
-# LS_COLOR
-sola_dir=$HOME/Dropbox/src/dotfiles/external/dircolors-solarized
-if [ -d $sola_dir ]; then
-  if [ -n "$DISPLAY" ]; then
-    eval `TERM=xterm-256color dircolors -b $sola_dir/dircolors.256dark`
-  else
-    eval `dircolors -b $sola_dir/dircolors.ansi-dark`
-  fi
-fi
+    if [ -d $DROPBOX/src/dotfiles/external/dircolors-solarized ]; then
+      eval `dircolors -b $DROPBOX/src/dotfiles/external/dircolors-solarized/dircolors.ansi-dark`
+    fi
+    ;;
+  *)
+    export LANG=ja_JP.UTF-8
+
+    if [ -d $DROPBOX/src/dotfiles/external/dircolors-solarized ]; then
+      eval `TERM=xterm-256color dircolors -b $DROPBOX/src/dotfiles/external/dircolors-solarized/dircolors.256dark`
+    fi
+
+    term_title() {
+      echo -ne "\033]0;${PWD:t} - terminal\007"  #カレントディレクトリのみ表示
+    }
+    typeset -ga chpwd_functions
+    chpwd_functions+=term_title
+    ;;
+esac
 
 # Jump {{{
 # autojump
 # https://github.com/joelthelion/autojump
 aj_version=21.6.9
-if [ -s ${HOME}/Dropbox/src/autojump/${aj_version}/etc/autojump.zsh ] ; then
-  path=(${HOME}/Dropbox/src/autojump/${aj_version}/bin ${path})
-  fpath=(${HOME}/Dropbox/src/autojump/${aj_version}/func ${fpath})
-  source ${HOME}/Dropbox/src/autojump/${aj_version}/etc/autojump.zsh
+if [ -s ${DROPBOX}/src/autojump/${aj_version}/etc/autojump.zsh ] ; then
+  path=(${DROPBOX}/src/autojump/${aj_version}/bin ${path})
+  fpath=(${DROPBOX}/src/autojump/${aj_version}/func ${fpath})
+  source ${DROPBOX}/src/autojump/${aj_version}/etc/autojump.zsh
 fi
 export AUTOJUMP_IGNORE_CASE=1
 export AUTOJUMP_KEEP_SYMLINKS=1
 # z
 # https://github.com/rupa/z
-#if [ -f $HOME/Dropbox/src/zsh/z/z.sh ]; then
+#if [ -f $DROPBOX/src/zsh/z/z.sh ]; then
   #_Z_CMD=j
-  #source $HOME/Dropbox/src/zsh/z/z.sh
+  #source $DROPBOX/src/zsh/z/z.sh
 #fi
 # }}}
 
@@ -149,7 +157,7 @@ SPROMPT="%{$fg_bold[red]%}correct%{$reset_color%}: %R -> %r ? "
 
 #viモードでプロンプトを切り替える
 function zle-line-init zle-keymap-select {
-  case $KEYMAP in
+  case ${KEYMAP} in
     vicmd)
     PROMPT="[%{$fg_bold[red]%}NOR%{$reset_color%}]%{$fg_bold[white]%}%%%{$reset_color%} "
     ;;
@@ -181,16 +189,6 @@ _reset_prompt() {
 }
 typeset -ga precmd_functions
 precmd_functions+=_reset_prompt
-
-case "${TERM}" in
-xterm*|rxvt*)
-  term_title() {
-    echo -ne "\033]0;${PWD:t} - terminal\007"  #カレントディレクトリのみ表示
-  }
-  typeset -ga chpwd_functions
-  chpwd_functions+=term_title
-  ;;
-esac
 # }}}
 # function {{{
 #cdしたら、ファイル数が多いときに省略するls

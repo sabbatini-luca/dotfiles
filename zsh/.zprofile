@@ -1,13 +1,15 @@
 # Ubuntu, read this file by ~/.profile
 
-if grep -q "Arch Linux" /etc/issue ; then
-  #[ -f /etc/profile ] && . /etc/profile
-  # Arch Linux, system zprofile is /etc/profile
-  export DISTRO="Arch"
-elif grep -q "Ubuntu" /etc/issue ; then
-  export skip_global_compinit=1
-  export DISTRO="Ubuntu"
-  export DEBIAN_BUILDARCH=pentium4
+if [ -f /etc/issue ]; then
+  if grep -q "Arch Linux" /etc/issue ; then
+    #[ -f /etc/profile ] && . /etc/profile
+    # Arch Linux, system zprofile is /etc/profile
+    export DISTRO="Arch"
+  elif grep -q "Ubuntu" /etc/issue ; then
+    export skip_global_compinit=1
+    export DISTRO="Ubuntu"
+    export DEBIAN_BUILDARCH=pentium4
+  fi
 fi
 
 #if ! echo $PATH | /bin/grep -q "/usr/local" ; then
@@ -21,7 +23,7 @@ if [ -d $HOME/bin ];then
   export PATH="$HOME/bin:$PATH"
 fi
 
-if which lv &>/dev/null; then
+if type lv &>/dev/null; then
   #export PAGER="lv -c -l -T8192"
   export PAGER=lv
   export LV="-c -l -T8192"

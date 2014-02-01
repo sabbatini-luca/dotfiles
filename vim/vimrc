@@ -1,12 +1,17 @@
 set nocompatible
-let $MYDIR=$HOME . "/Dropbox/src/dotfiles/vim"
+if has("win64unix") || has("win32unix")
+  let $DROPBOX="/cygdrive/d/Dropbox"
+else
+  let $DROPBOX=$HOME . "/Dropbox"
+endif
+let $VIMDIR=$DROPBOX . "/src/dotfiles/vim"
 
 "neobundle {{{
 filetype off
 if has('vim_starting')
-  set runtimepath+=$MYDIR/bundle/neobundle.vim
+  set runtimepath+=$VIMDIR/bundle/neobundle.vim
 endif
-call neobundle#rc(expand($MYDIR . "/bundle"))
+call neobundle#rc(expand($VIMDIR . "/bundle"))
 
 " github
 NeoBundle 'Shougo/neobundle.vim'
@@ -47,8 +52,8 @@ let g:lightline = {
 NeoBundle 'sudo.vim'
 " }}}
 
-set runtimepath^=$MYDIR/runtime
-set runtimepath+=$MYDIR/runtime/after
+set runtimepath^=$VIMDIR/runtime
+set runtimepath+=$VIMDIR/runtime/after
 
 set autoindent
 set expandtab
@@ -257,9 +262,9 @@ endif
 if has("autocmd")
   filetype plugin indent on
   autocmd VimEnter,BufNewFile,BufReadPost * runtime zenkakuspace.vim
-  "autocmd BufNewFile *.html         0r $MYDIR/runtime/skeleton.html
-  autocmd BufNewFile *.rb           0r $MYDIR/runtime/skeleton.rb
-  autocmd BufNewFile *.sh           0r $MYDIR/runtime/skeleton.sh
+  "autocmd BufNewFile *.html         0r $VIMDIR/runtime/skeleton.html
+  autocmd BufNewFile *.rb           0r $VIMDIR/runtime/skeleton.rb
+  autocmd BufNewFile *.sh           0r $VIMDIR/runtime/skeleton.sh
 
   "コメント行から改行などしたときに自動でコメント文字を挿入しないようにする
   "set formatoptions-=roでは駄目だった
