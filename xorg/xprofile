@@ -1,36 +1,28 @@
 #!/bin/sh
 
-for errfile in "$HOME/.xsession-errors"
-do
-  if ( cp /dev/null "$errfile" 2> /dev/null )
-  then
-    chmod 600 "$errfile"
-    exec > "$errfile" 2>&1
-    break
-  fi
-done
+#export LANG=ja_JP.UTF-8
 
-export LANG=ja_JP.UTF-8
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+if [ -d $HOME/bin ];then
+  export PATH="$HOME/bin:$PATH"
+fi
+
+if [ -f /etc/issue ]; then
+  if grep -q "Arch Linux" /etc/issue ; then
+    #[ -f /etc/profile ] && . /etc/profile
+    # Arch Linux, system zprofile is /etc/profile
+    export DISTRO="Arch"
+  elif grep -q "Ubuntu" /etc/issue ; then
+    export DISTRO="Ubuntu"
+  fi
+fi
+
 #export GDK_USE_XFT=1
 ##for OOo antialias
 #export SAL_EMBEDDED_BITMAP_PRIORITY=0
+#export OOO_FORCE_DESKTOP=gnome
 ##for Java
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 ##for Xfce Terminal
-#export VTE_CJK_WIDTH=wide
-#export OOO_FORCE_DESKTOP=gnome
-export DE=xfce
-
-. $HOME/Dropbox/src/dotfiles/zsh/.zprofile
-
-# ATOK
-. /opt/atokx3/bin/atokx3start.sh
-/opt/atokx3/sample/iiimf_status_hide
-
-# ibus
-#export GTK_IM_MODULE=ibus
-#export QT_IM_MODULE=ibus
-#export XMODIFIERS=@im=ibus
-# autostart
-##/usr/bin/ibus-daemon --xim -d &
+export VTE_CJK_WIDTH=wide
 

@@ -6,9 +6,9 @@ alias lal='ll -A'
 
 alias cp='nocorrect cp -i'
 alias mv='nocorrect mv -i'
-if which trash &>/dev/null; then
+if type trash &>/dev/null; then
   alias rm='trash'
-elif which trash-put &>/dev/null; then
+elif type trash-put &>/dev/null; then
   alias rm='trash-put'
 else
   alias rm='nocorrect rm -i'
@@ -48,14 +48,16 @@ case ${DISTRO} in
   "Ubuntu")
   alias search="apt-cache search"
   #alias unzip="LANG=ja_JP.UTF-8 unzip"
-  alias dbst=' python $HOME/Dropbox/src/bin/dropbox.py status'
+  alias dbst=' python $DROPBOX/src/bin/dropbox.py status'
+  alias dpstop=" sudo service dboxd stop"
+  alias dpstart=" sudo service dboxd start"
   ;;
   "Arch")
   alias man="LANG=C man"
   alias unzip="unzip -O CP932"
   alias dpstop=" sudo systemctl stop dropboxd.service"
   alias dpstart=" sudo systemctl start dropboxd.service"
-  alias dbst=' python2 $HOME/Dropbox/src/bin/dropbox.py status'
+  alias dbst=' python2 $DROPBOX/src/bin/dropbox.py status'
   ;;
 esac
 

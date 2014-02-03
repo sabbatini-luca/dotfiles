@@ -1,3 +1,9 @@
+path=(
+  $HOME/bin(N-/)
+  /usr/local/(s|)bin(N-/)
+  $path
+  )
+
 case ${OSTYPE} in
   linux*);
     export DROPBOX="$HOME/Dropbox"
@@ -8,4 +14,26 @@ case ${OSTYPE} in
 esac
 
 export ZDOTDIR="$DROPBOX/src/dotfiles/zsh"
+
 export skip_global_compinit=1
+
+if type lv &>/dev/null; then
+  #export PAGER="lv -c -l -T8192"
+  export PAGER=lv
+  export LV="-c -l -T8192"
+else
+  export PAGER=less
+fi
+export EDITOR=vim
+
+if [ -f /etc/issue ]; then
+  if grep -q "Arch Linux" /etc/issue ; then
+    #[ -f /etc/profile ] && . /etc/profile
+    # Arch Linux, system zprofile is /etc/profile
+    export DISTRO="Arch"
+  elif grep -q "Ubuntu" /etc/issue ; then
+    export DISTRO="Ubuntu"
+    export DEBIAN_BUILDARCH=pentium4
+  fi
+fi
+
