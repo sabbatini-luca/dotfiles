@@ -3,14 +3,14 @@ case ${TERM} in
     export LANGUAGE=en
     export LANG=en_US.UTF-8
 
-    if [ -d $DROPBOX/src/dotfiles/external/dircolors-solarized ]; then
+    if [ -f $DROPBOX/src/dotfiles/external/dircolors-solarized/dircolors.ansi-dark ]; then
       eval `dircolors -b $DROPBOX/src/dotfiles/external/dircolors-solarized/dircolors.ansi-dark`
     fi
     ;;
   *)
     export LANG=ja_JP.UTF-8
 
-    if [ -d $DROPBOX/src/dotfiles/external/dircolors-solarized ]; then
+    if [ -f $DROPBOX/src/dotfiles/external/dircolors-solarized/dircolors.256dark ]; then
       eval `TERM=xterm-256color dircolors -b $DROPBOX/src/dotfiles/external/dircolors-solarized/dircolors.256dark`
     fi
 
