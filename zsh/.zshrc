@@ -15,10 +15,11 @@ case ${TERM} in
     fi
 
     term_title() {
-      echo -ne "\033]0;${PWD:t} - terminal\007"  #カレントディレクトリのみ表示
+      echo -ne "\033]0;${PWD:t} - ${TERM}\007"  #カレントディレクトリのみ表示
     }
     typeset -ga chpwd_functions
     chpwd_functions+=term_title
+    term_title
     ;;
 esac
 
