@@ -1,4 +1,4 @@
-case ${TERM} in
+case $TERM in
   linux)
     export LANGUAGE=en
     export LANG=en_US.UTF-8
@@ -15,7 +15,7 @@ case ${TERM} in
     fi
 
     term_title() {
-      echo -ne "\033]0;${PWD:t} - ${TERM}\007"  #カレントディレクトリのみ表示
+      echo -ne "\033]0;${PWD:t} - $TERM\007"  #カレントディレクトリのみ表示
     }
     typeset -ga chpwd_functions
     chpwd_functions+=term_title
@@ -27,10 +27,10 @@ esac
 # autojump
 # https://github.com/joelthelion/autojump
 aj_version=21.6.9
-if [ -s ${DROPBOX}/src/autojump/${aj_version}/etc/autojump.zsh ] ; then
-  path=(${DROPBOX}/src/autojump/${aj_version}/bin ${path})
-  fpath=(${DROPBOX}/src/autojump/${aj_version}/func ${fpath})
-  source ${DROPBOX}/src/autojump/${aj_version}/etc/autojump.zsh
+if [ -s $DROPBOX/src/autojump/$aj_version/etc/autojump.zsh ] ; then
+  path=($DROPBOX/src/autojump/$aj_version/bin $path)
+  fpath=($DROPBOX/src/autojump/$aj_version/func $fpath)
+  source $DROPBOX/src/autojump/$aj_version/etc/autojump.zsh
 fi
 export AUTOJUMP_IGNORE_CASE=1
 export AUTOJUMP_KEEP_SYMLINKS=1
@@ -143,7 +143,7 @@ colors
 setopt prompt_subst         #プロンプトにエスケープシーケンスを通す
 setopt transient_rprompt     #コマンド実行時に右プロンプトを消す
 
-case ${UID} in
+case $UID in
   0)
   PROMPT="%{$fg_bold[green]%}%m%{$fg_bold[red]%}%#%{$reset_color%} "
   PROMPT2="%{$fg[magenta]%}%_%{$reset_color%}%{$fg_bold[white]%}>>%{$reset_color%} "
@@ -158,7 +158,7 @@ SPROMPT="%{$fg_bold[red]%}correct%{$reset_color%}: %R -> %r ? "
 
 #viモードでプロンプトを切り替える
 function zle-line-init zle-keymap-select {
-  case ${KEYMAP} in
+  case $KEYMAP in
     vicmd)
     PROMPT="[%{$fg_bold[red]%}NOR%{$reset_color%}]%{$fg_bold[white]%}%%%{$reset_color%} "
     ;;
@@ -259,7 +259,7 @@ h() {
       (*.Z) uncompress $1 ;;
       (*.lzh) lha x $1 ;;
       (*.zip)
-        case ${DISTRO} in
+        case $DISTRO in
           ("Arch") unzip -O CP932 $1 ;;
           (*) unzip $1               ;;
         esac
