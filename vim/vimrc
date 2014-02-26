@@ -60,6 +60,7 @@ set expandtab
 "set tabstop=8
 set softtabstop=2
 set shiftwidth=2
+set backspace=indent,eol,start "システムによってはこれがデフォルトになってる
 set formatoptions-=t
 set formatoptions+=mB
 set laststatus=2
@@ -93,6 +94,7 @@ set confirm
 set display=lastline
 set wildmode=longest,list,full
 set virtualedit+=block
+set lazyredraw "再描画抑制 GUIではいい感じ
 " PHPで文字列中のHTMLをハイライト
 let php_htmlInStrings=1
 " %移動を拡張
