@@ -48,7 +48,7 @@ loadplugins
 " feedSomKeys_3
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 lazy fmaps -u='mail\.google\.com/mail' c / y j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
-lazy fmaps -u='livedoor\.com/reader' j k s a r v g G z <Space> <S-Space> < >
+lazy fmaps -u='livedoor\.com/reader' j k s a r v g G <Space> <S-Space> < >
 
 " noscript.js
 nmap <silent> en :noscript toggletemp<CR>
