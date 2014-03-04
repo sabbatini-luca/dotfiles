@@ -66,7 +66,7 @@ hi  URL:hover   text-decoration: underline; cursor: pointer;
 hi  WarningMsg  color: #DC322F; background: #002B36;
 
 " hints-ext.js
-hi  HintExt  font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; color: #FDF6E3; background-color: #DC322F; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 1px;
+hi  HintExt  font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; line-height: 1; color: #FDF6E3; background-color: #DC322F; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 1px;
 hi  HintExtActive  background-color: rgba(133,153,0,.3);
 hi  HintExtActive>*  background-color: #268BD2;
 hi  HintExtActive>span  background-color: #268BD2;
