@@ -7,8 +7,8 @@ if $DISTRO == "Arch"
   "set guifontwide=Migu\ 1M\ 13
 elseif $DISTRO == "Ubuntu"
   set lines=32
-  set linespace=2
-  set guifont=Monaco\ for\ Powerline\ 14,Migu\ 1M\ 14
+  set linespace=0
+  set guifont=Monaco\ for\ Powerline\ 13,Migu\ 1M\ 13
   "set guifontwide=Migu\ 1M\ 14
 endif
 
