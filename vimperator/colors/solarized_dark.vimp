@@ -5,7 +5,7 @@
 
 hi  Bell  border: none; background-color: #93A1A1;
 hi  Boolean   color: #DC322F;
-hi  CmdLine   background: #073642; color: #93A1A1; -moz-transition: all 0.25s;
+hi  CmdLine   background: #073642; color: #93A1A1; transition: all 0.25s;
 hi  CmdLine>*   font-family: monospace;
 hi  CmdOutput   white-space: pre;
 hi  CompDesc  width: 500px; max-width: 500px; color: #859900;
@@ -24,14 +24,14 @@ hi  ContentSeparator  border-top: 1px dotted #93A1A1; display: -moz-box;
 hi  Disabled  color: #DC322F;
 hi  Enabled   color: #859900;
 hi  ErrorMsg  color: #FDF6E3; background: #DC322F; font-weight: bold;
-hi  Filter  color: #CB4B16; font-weight: bold;
+hi  Filter  border-radius: 2px; background: #FDF6E3; border: 1px solid #CB4B16;
 hi  FrameIndicator  background-color: #DC322F; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 hi  Function  color: 268BD2;
 hi  Hint  font-family: monospace; font-size: medium; font-weight: bold; text-transform: uppercase; color: #FDF6E3; background-color: #DC322F; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 1px; z-index: 9999;
 hi  Hint::after   content: attr(number);
-hi  HintActive  background-color: rgba(133,153,0,0.5); color: #586E75;
-hi  HintElem  background-color: rgba(181,137,0,0.2);  color: #586E75;
-hi  HintImage   opacity: .5;
+hi  HintActive  background-color: #859900; color: #002B36;
+hi  HintElem  background-color: #B58900;  color: #002B36;
+hi  HintImage   opacity: 0.5;
 hi  Indicator   color: #268BD2;
 hi  InfoMsg   color: #D33682; background: #002B36;
 hi  Key   font-weight: bold;
