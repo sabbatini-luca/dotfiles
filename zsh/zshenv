@@ -1,6 +1,8 @@
 path=(
   $HOME/bin(N-/)
   /usr/local/(s|)bin(N-/)
+  /(s|)bin(N-/)
+  /usr/(s|)bin(N-/)
   $path
   )
 
