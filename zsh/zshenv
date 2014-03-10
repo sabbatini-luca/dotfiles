@@ -4,16 +4,8 @@ path=(
   $path
   )
 
-case $OSTYPE in
-  linux*);
-    export DROPBOX="$HOME/Dropbox"
-    ;;
-  cygwin*);
-    export DROPBOX="/cygdrive/d/Dropbox"
-    ;;
-esac
-
-export ZDOTDIR="$DROPBOX/src/dotfiles/zsh"
+export ZDOTDIR=$(dirname $(readlink -f $HOME/.zshenv))
+export DROPBOX=${ZDOTDIR/Dropbox*/Dropbox}
 
 export skip_global_compinit=1
 
