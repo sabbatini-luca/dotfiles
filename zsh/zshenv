@@ -12,13 +12,15 @@ export DROPBOX=${ZDOTDIR/Dropbox*/Dropbox}
 export skip_global_compinit=1
 
 if type lv &>/dev/null; then
-  #export PAGER="lv -c -l -T8192"
   export PAGER=lv
   export LV="-c -l -T8192"
 else
   export PAGER=less
 fi
-export EDITOR=vim
+
+if type vim &>/dev/null; then
+  export EDITOR=vim
+fi
 
 if [ -f /etc/issue ]; then
   if grep -q "Arch Linux" /etc/issue ; then

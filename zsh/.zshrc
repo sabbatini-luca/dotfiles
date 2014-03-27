@@ -1,3 +1,4 @@
+# $TERM {{{
 case $TERM in
   linux)
     export LANGUAGE=en
@@ -22,6 +23,7 @@ case $TERM in
     term_title
     ;;
 esac
+# }}}
 
 # Jump {{{
 # autojump
@@ -95,6 +97,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 #http://lethalman.blogspot.com/2009/10/speeding-up-zsh-completion.html
 zstyle ':completion:*' accept-exact '*(N)'
 # }}}
+
 # history {{{
 #HISTFILE=$HOME/.zsh_histfile
 HISTFILE=$ZDOTDIR/HISTFILE
@@ -137,6 +140,7 @@ zshaddhistory() {
     ]]
 }
 # }}}
+
 # prompt {{{
 autoload -Uz colors         #%{$fg[red]%}%みたいに色を指定出来る
 colors
@@ -191,6 +195,7 @@ _reset_prompt() {
 typeset -ga precmd_functions
 precmd_functions+=_reset_prompt
 # }}}
+
 # function {{{
 #cdしたら、ファイル数が多いときに省略するls
 #http://qiita.com/items/b10542db482c3ac8b059
@@ -290,6 +295,7 @@ fi
 autoload -Uz zmv
 
 # }}}
+
 # keybind {{{
 #bindkey -e # Emacs
 bindkey -v # Vi
@@ -376,15 +382,8 @@ zle -A .kill-whole-line vi-kill-line
 . "$ZDOTDIR/zsh_vim_visualmode"
 
 # }}}
-#############################################################
-# PREDICT 先方予測
-#autoload -U predict-on
-#zle -N predict-on
-#zle -N predict-off
-#bindkey '^xp' predict-on
-#bindkey '^x^p' predict-off
-#############################################################
-# misc options
+
+# misc {{{
 #setopt auto_cd              #ディレクトリ名の入力で移動
 setopt auto_pushd           #移動元のディレクトリを自動でスタック
 setopt pushd_ignore_dups    #重複してるpushdを無視
@@ -401,7 +400,7 @@ REPORTTIME=3
 #URLに含まれる特殊文字をエスケープする。コピペの時便利
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
-
+# }}}
 . "$ZDOTDIR/aliases.zsh"
 
 # vim: set ft=zsh foldmethod=marker:
