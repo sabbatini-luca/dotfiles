@@ -61,7 +61,7 @@ setopt magic_equal_subst    #--prefix=/usrなどで=の後でもパス補完
 
 #sudoの後ろでもコマンド補完
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-			     /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+			     /usr/sbin /usr/bin /sbin /bin
 #小文字を入力した場合は大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
