@@ -1,10 +1,12 @@
 path=(
-  $HOME/bin(N-/)
-  /usr/local/(s|)bin(N-/)
-  /(s|)bin(N-/)
-  /usr/(s|)bin(N-/)
+  $HOME/bin
+  /usr/local/(s|)bin
+  /(s|)bin
+  /usr/(s|)bin
   $path
   )
+#存在しないディレクトリを排除
+path=($^path(N-/))
 
 export ZDOTDIR=$(dirname $(readlink -f $HOME/.zshenv))
 export DROPBOX=${ZDOTDIR/Dropbox*/Dropbox}
