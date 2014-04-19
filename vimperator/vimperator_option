@@ -92,7 +92,7 @@ qmark n http://news.google.co.jp/nwshp?hl=ja&tab=wn
 qmark p http://picasaweb.google.com/
 qmark s http://sports.yahoo.co.jp/
 qmark t https://twitter.com/home
-qmark y http://www.youtube.com/videos?feature=mh
+qmark y http://www.youtube.com/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " コマンドラインでIMEをオフにする。Windowsのみ
