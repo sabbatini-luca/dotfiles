@@ -8,7 +8,7 @@ hi  Boolean   color: #DC322F;
 hi  CmdLine   background: #EEE8D5; color: #586E75; transition: all 0.25s;
 hi  CmdLine>*   font-family: monospace;
 hi  CmdOutput   white-space: pre;
-hi  CompDesc  width: 500px; max-width: 500px; color: #859900;
+hi  CompDesc  width: 500px; max-width: 500px; color: #859900; overflow: hidden;
 "hi  CompGroup
 hi  CompGroup:not(:first-of-type)   margin-top: 1ex;
 hi  CompIcon  width: 16px; min-width: 16px; display: inline-block; margin-right: .5ex;
