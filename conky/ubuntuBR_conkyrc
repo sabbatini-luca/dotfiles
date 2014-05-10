@@ -10,12 +10,12 @@ xftfont Monaco:size=12
 xftalpha 0.8
 
 own_window yes
-#own_window_type override
-own_window_type normal
+own_window_type override
+#own_window_type normal
 own_window_transparent yes
-own_window_argb_visual yes
+#own_window_argb_visual yes
 #own_window_argb_value 255
-own_window_class conky-semi
+#own_window_class conky-semi
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 draw_shades yes
 double_buffer yes
