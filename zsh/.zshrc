@@ -28,7 +28,7 @@ esac
 # Jump {{{
 # autojump
 # https://github.com/joelthelion/autojump
-aj_version=21.6.9
+aj_version=21.7.1
 if [ -s $DROPBOX/src/autojump/$aj_version/etc/autojump.zsh ] ; then
   path=($DROPBOX/src/autojump/$aj_version/bin $path)
   fpath=($DROPBOX/src/autojump/$aj_version/func $fpath)
