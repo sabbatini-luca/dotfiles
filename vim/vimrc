@@ -279,6 +279,17 @@ if has("autocmd")
   "入力がないとき一定時間後にanzuの表示を消去
   autocmd CursorHold,CursorHoldI,WinLeave,TabLeave *
               \ call anzu#clear_search_status()
+
+  " インサートモードを抜けるときにFcitxを自動でオフ
+  " https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+  function! FcitxOff()
+    let s:input_status = system("fcitx-remote")
+    if s:input_status == 2
+      let l:a = system("fcitx-remote -c")
+    endif
+  endfunction
+  autocmd InsertLeave * call FcitxOff()
+
 endif
 " }}}
 
