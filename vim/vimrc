@@ -33,7 +33,7 @@ NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'itchyny/lightline.vim'
 let g:lightline = {
-      \ 'colorscheme': '16color',
+      \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified', 'anzu' ] ],
