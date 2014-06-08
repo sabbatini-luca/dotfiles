@@ -271,14 +271,14 @@ h() {
       ;;
       (*.mp3) mplayer -demuxer lavf $1 ;;
       (*.ogg) mplayer -demuxer ogg $1 ;;
-      (*.mkv|*.mp4|*.avi|*.wmv) mplayer $1 ;;
+      (*.m4a|*.mkv|*.mp4|*.avi|*.wmv) mplayer $1 ;;
     esac
   else
     echo "File ('$1') does not exist!"
   fi
 }
 _h() {
-  _files -g '*.(tar|tbz2|tgz|bz2|gz|xz|jar|xpi|rar|7z|Z|lzh|zip|mp3|ogg|mkv|mp4|avi|wmv)(-.)' && return 0
+  _files -g '*.(tar|tbz2|tgz|bz2|gz|xz|jar|xpi|rar|7z|Z|lzh|zip|mp3|ogg|m4a|mkv|mp4|avi|wmv)(-.)' && return 0
   return 1
 }
 compdef _h h
