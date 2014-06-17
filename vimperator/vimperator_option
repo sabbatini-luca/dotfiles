@@ -7,7 +7,7 @@ set focuscontent
 set nextpattern=^次(へ|の|ペ),^続き,\bnext\b,^>$,^(>>|&#187;)$,^(>|&#187;),(>|&#187;)$,\bmore\b
 set previouspattern=^前(へ|の|ペ),^戻る,\bprev|previous\b,^<$,^(<<|&#171;)$,^(<|&#171;),(<|&#171;)$
 set hintchars="jfhgurkdie"
-set status=input,location,bookmark,history,position
+set status=input,ssl,location,bookmark,history,position
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight

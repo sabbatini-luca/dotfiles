@@ -73,6 +73,6 @@ hi  HintExtActive>span  background-color: #268BD2;
 hi  HintExtElem  border: 1px solid rgba(147,161,161,.5); -moz-border-radius: 2px; background-color: rgba(238,232,213, .1); -moz-box-sizing: border-box;
 
 " statusline-ssl.js
-hi  StatusLineBroken  color: #002B36; background-color: #DC322F;
-hi  StatusLineSecure  color: #FDF6E3; background-color: #268BD2;
-hi  StatusLineExtended  color: #FDF6E3; background-color: #859900;
+"hi  StatusLineBroken  color: #002B36; background-color: #DC322F;
+"hi  StatusLineSecure  color: #FDF6E3; background-color: #268BD2;
+"hi  StatusLineExtended  color: #FDF6E3; background-color: #859900;
