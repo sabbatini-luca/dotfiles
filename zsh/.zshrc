@@ -308,9 +308,9 @@ bindkey -a 'H' run-help
 bindkey -v '^A' _expand_alias #aliasを展開
 bindkey -v '^Y' push-input #コマンドラインスタック
 
-#インクリメンタル履歴検索
-bindkey -v '^R' history-incremental-search-backward
-bindkey -v '^S' history-incremental-search-forward
+#インクリメンタル履歴検索 glob可
+bindkey -v '^R' history-incremental-pattern-search-backward
+bindkey -v '^S' history-incremental-pattern-search-forward
 
 #メニュー選択移動をhjklで
 zmodload zsh/complist
