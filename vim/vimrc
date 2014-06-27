@@ -21,7 +21,7 @@ NeoBundle 'gcmt/wildfire.vim'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'altercation/vim-colors-solarized'
-let g:solarized_termcolors=16
+"let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 "let g:solarized_contrast='high'
 let g:solarized_visibility='normal'
